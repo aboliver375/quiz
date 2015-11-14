@@ -2,31 +2,31 @@ package com.reiquiz.solution.models;
 
 public class RangePair {
 
-  private Integer min;
-  private Integer max;
+  private Integer start;
+  private Integer end;
 
   public RangePair() {
   }
 
-  public RangePair(Integer min, Integer max) {
-    this.min = min;
-    this.max = max;
+  public RangePair(Integer start, Integer end) {
+    this.start = start;
+    this.end = end;
   }
 
-  public Integer getMin() {
-    return min;
+  public Integer getStart() {
+    return start;
   }
 
-  public void setMin(Integer min) {
-    this.min = min;
+  public void setStart(Integer start) {
+    this.start = start;
   }
 
-  public Integer getMax() {
-    return max;
+  public Integer getEnd() {
+    return end;
   }
 
-  public void setMax(Integer max) {
-    this.max = max;
+  public void setEnd(Integer end) {
+    this.end = end;
   }
 
   @Override
@@ -40,17 +40,17 @@ public class RangePair {
 
     RangePair rangePair = (RangePair) o;
 
-    if (min != null ? !min.equals(rangePair.min) : rangePair.min != null) {
+    if (start != null ? !start.equals(rangePair.start) : rangePair.start != null) {
       return false;
     }
-    return !(max != null ? !max.equals(rangePair.max) : rangePair.max != null);
+    return !(end != null ? !end.equals(rangePair.end) : rangePair.end != null);
 
   }
 
   @Override
   public int hashCode() {
-    int result = min != null ? min.hashCode() : 0;
-    result = 31 * result + (max != null ? max.hashCode() : 0);
+    int result = start != null ? start.hashCode() : 0;
+    result = 31 * result + (end != null ? end.hashCode() : 0);
     return result;
   }
 
@@ -58,9 +58,9 @@ public class RangePair {
   public String toString() {
     return new StringBuilder()
         .append("(")
-        .append(min)
+        .append(start)
         .append(",")
-        .append(max)
+        .append(end)
         .append(")")
         .toString();
   }

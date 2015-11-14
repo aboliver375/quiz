@@ -8,24 +8,21 @@ import java.util.List;
 public class RangeCalculator {
 
   public List<RangePair> findIncreasing(final int[] values) {
-    int prev = 0;
-    int count = 0;
-
-    RangePair pair = new RangePair();
     final List<RangePair> result = new ArrayList<>();
+    RangePair pair = new RangePair();
 
-    for (int i = 1; i < values.length; i++, prev++) {
-      if (values[i] > values[prev]) {
+    for (int count = 0, prev = 0, position = 1; position < values.length; position++, prev++) {
+      if (values[position] > values[prev]) {
 
-        if (pair.getMin() == null) {
-          pair.setMin(prev);
+        if (pair.getStart() == null) {
+          pair.setStart(prev);
         }
         count++;
       } else {
         if (count > 0) {
 
-          if (pair.getMin() != null) {
-            pair.setMax(prev);
+          if (pair.getStart() != null) {
+            pair.setEnd(prev);
             result.add(pair);
             count = 0;
           }
@@ -35,8 +32,8 @@ public class RangeCalculator {
     }
 
     //Add final value if array ends on a pair
-    if (pair.getMax() == null && pair.getMin() != null) {
-      pair.setMax(values.length - 1);
+    if (pair.getEnd() == null && pair.getStart() != null) {
+      pair.setEnd(values.length - 1);
       result.add(pair);
     }
     return result;
