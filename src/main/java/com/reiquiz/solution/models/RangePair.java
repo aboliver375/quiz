@@ -3,11 +3,10 @@ package com.reiquiz.solution.models;
 public class RangePair {
 
   private Integer min;
+  private Integer max;
 
   public RangePair() {
   }
-
-  private Integer max;
 
   public RangePair(Integer min, Integer max) {
     this.min = min;
