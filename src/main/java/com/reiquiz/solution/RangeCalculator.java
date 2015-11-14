@@ -12,9 +12,9 @@ public class RangeCalculator {
     int count = 0;
 
     RangePair pair = new RangePair();
-    final List<RangePair> result = new ArrayList<RangePair>();
+    final List<RangePair> result = new ArrayList<>();
 
-    for (int i = 1; i < values.length; i++) {
+    for (int i = 1; i < values.length; i++, prev++) {
       if (values[i] > values[prev]) {
 
         if (pair.getMin() == null) {
@@ -32,7 +32,6 @@ public class RangeCalculator {
           pair = new RangePair();
         }
       }
-      prev = i;
     }
 
     //Add final value if array ends on a pair
